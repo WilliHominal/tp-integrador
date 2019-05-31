@@ -131,12 +131,11 @@ public class ArbolBinarioBusqueda<E extends Comparable<E>> extends Arbol<E> {
 	@Override
 	public boolean esCompleto() {
 		// TODO 1.d
-		if (this.izquierdo.profundidad() == this.derecho.profundidad()) {
-			return this.esLleno();
-		} else if (this.izquierdo.profundidad() > this.derecho.profundidad()) {
+		if (this.esLleno() || (!(this.izquierdo instanceof ArbolVacio) && this.derecho instanceof ArbolVacio) || (this.izquierdo instanceof ArbolVacio && this.derecho instanceof ArbolVacio )) {
+			return true;
+		} else if (Math.pow(2,this.profundidad()-1) == this.cuentaNodosDeNivel(this.profundidad()-1)) {
 			return this.izquierdo.esCompleto();
 		}
-		
 		return false;
 	}
 
