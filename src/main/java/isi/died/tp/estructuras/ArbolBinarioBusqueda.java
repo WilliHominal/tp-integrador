@@ -146,5 +146,47 @@ public class ArbolBinarioBusqueda<E extends Comparable<E>> extends Arbol<E> {
 			return true;
 		return false;
 	}
+	
+	@Override
+	public List<E> rango (E inicio, E fin){
+		List <E> lista = new ArrayList<E>();
+		
+		//SI INICIO ES MENOR A FIN ENTONCES
+		if (inicio.compareTo(fin) <= 0) {
+			
+			//SI EL VALOR ACTUAL ES IGUAL AL DE INICIO
+			if (this.valor.compareTo(inicio) == 0) {//							actual == inicio
+				
+				//AGREGO EL VALOR ACTUAL A LA LISTA
+				lista.add(this.valor);
+				
+				//SI inicio == actual < fin
+				if (this.valor.compareTo(fin) < 0) {//						&&  actual < fin
+					lista.addAll(derecho.rango(inicio, fin));
+				}
+				
+			//SI ACTUAL ES MAYOR A INICIO
+			} else if (this.valor.compareTo(inicio) > 0) { // 					actual > inicio
+				
+				//SI actual > inicio && actual > fin
+				if (this.valor.compareTo(fin) > 0) { // 					&&	actual > fin
+					 lista.addAll(this.izquierdo.rango(inicio, fin));
+					 
+				//SI actual > inicio && actual <= fin
+				} else{
+					
+					lista.add(this.valor);
+					lista.addAll(this.izquierdo.rango(inicio, fin));
+					lista.addAll(this.derecho.rango(inicio,fin));
+				}
+				 
+			//SI ACTUAL ES MENOR A INICIO
+			} else {//															actual < inicio
+				
+				lista.addAll(this.derecho.rango(inicio, fin));
+			}
+		}
+		return lista;
+	}
 
 }

@@ -1,6 +1,10 @@
 package isi.died.tp.estructuras;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -51,7 +55,17 @@ public class ArbolBinarioBusquedaTest {
 
 	@Test
 	public void testAgregar() {
-		fail("Not yet implemented");
+		ArbolBinarioBusqueda<Integer> abb1 = new ArbolBinarioBusqueda<Integer>(10);
+		List<Integer> lista = new ArrayList<Integer>();
+		lista.add(10); lista.add(6); lista.add(5); lista.add(8); lista.add(7); lista.add(9); lista.add(15); lista.add(20);
+		abb1.agregar(6);
+		abb1.agregar(5);
+		abb1.agregar(8);
+		abb1.agregar(9);
+		abb1.agregar(15);
+		abb1.agregar(20);
+		abb1.agregar(7);
+		assertEquals(lista,abb1.preOrden());
 	}
 
 	@Test
