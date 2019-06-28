@@ -4,8 +4,7 @@ public class InsumoLiquido extends Insumo {
 
 	public Double densidad;
 	
-	
-	public InsumoLiquido(String id, String descripcion, Double costo, Double stock, Boolean esRefrigerado, Double densidad) {
+	public InsumoLiquido(Integer id, String descripcion, Double costo, Integer stock, Boolean esRefrigerado, Double densidad) {
 		this.id = id;
 		this.descripcion = descripcion;
 		this.costo = costo;
