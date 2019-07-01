@@ -13,13 +13,9 @@ public void imprimirDistanciaAdyacentes(Planta inicial) {
 	}
 }
  // a
- public Planta buscarPlanta(Planta inicial, Insumo i, Integer saltos) {
-	 //List<Vertice<Planta>> plantas = vertices;
-	 // Predicate<Planta>
-	 //vertices.stream().filter(pred);
- }
+ //public Planta buscarPlanta(Planta inicial, Insumo i, Integer saltos) {}
  // b
- public Planta buscarPlanta(Planta inicial, Insumo i) { }
+ //public Planta buscarPlanta(Planta inicial, Insumo i) { }
  // c
- public Planta buscarPlanta(Insumo i) { }
+ //public Planta buscarPlanta(Insumo i) { }
 }

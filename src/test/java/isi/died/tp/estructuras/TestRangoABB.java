@@ -25,14 +25,14 @@ public class TestRangoABB {
 	
 	@Before
 	public void preTest() {
-		I1 = new Insumo("I1","Descripcion1",Unidad.Kilo,100.0,10.0,3.123,false);
-		I2 = new InsumoLiquido("I2", "Descripcion2", 750.0, 6.0, true, 1.141);
-		I3 = new Insumo("I3","Descripcion3",Unidad.Pieza,15.0,5.0,0.200,false);
-		I4 = new InsumoLiquido("I4", "Descripcion4", 500.0, 8.0, true, 1.976);
-		I5 = new Insumo("I5","Descripcion5",Unidad.M2,185.25,9.0,2.100,false);
-		I6 = new Insumo("I6","Descripcion6",Unidad.Metro,215.55,15.0,1.351,true);
-		I7 = new Insumo("I7","Descripcion7",Unidad.M3,705.30,20.0,0.213,false);
-		I8 = new Insumo("I8","Descripcion8",Unidad.Gramo,100.0,7.0,0.156,true);
+		I1 = new Insumo(1,"Descripcion1",Unidad.Kilo,100.0,10,3.123,false);
+		I2 = new InsumoLiquido(2, "Descripcion2", 750.0, 6, true, 1.141);
+		I3 = new Insumo(3,"Descripcion3",Unidad.Pieza,15.0,5,0.200,false);
+		I4 = new InsumoLiquido(4, "Descripcion4", 500.0, 8, true, 1.976);
+		I5 = new Insumo(5,"Descripcion5",Unidad.M2,185.25,9,2.100,false);
+		I6 = new Insumo(6,"Descripcion6",Unidad.Metro,215.55,15,1.351,true);
+		I7 = new Insumo(7,"Descripcion7",Unidad.M3,705.30,20,0.213,false);
+		I8 = new Insumo(8,"Descripcion8",Unidad.Gramo,100.0,7,0.156,true);
 		
 		abb = new ArbolBinarioBusqueda<Insumo>(I1);
 	}
