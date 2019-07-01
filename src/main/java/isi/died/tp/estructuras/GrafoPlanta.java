@@ -1,5 +1,8 @@
 package isi.died.tp.estructuras;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Stack;
 import java.util.function.Predicate;
 
 import isi.died.tp.dominio.Insumo;
@@ -14,9 +17,26 @@ public void imprimirDistanciaAdyacentes(Planta inicial) {
 }
  // a
  public Planta buscarPlanta(Planta inicial, Insumo i, Integer saltos) {
-	 //List<Vertice<Planta>> plantas = vertices;
-	 // Predicate<Planta>
-	 //vertices.stream().filter(pred);
+	Boolean encontrado = false;
+	Stack<Planta> pendientes = new Stack<Planta>();
+	HashSet<Planta> marcados = new HashSet<Planta>();
+	marcados.add(inicial);
+	pendientes.push(inicial);
+	while(!pendientes.isEmpty() && !encontrado){
+		Planta actual = pendientes.pop();
+		List<Planta> adyacentes = this.getAdyacentes(actual);
+		if (actual.necesitaInsumo(i)) {
+			return actual;
+		} else {
+			for(Planta p : adyacentes){
+				if(!marcados.contains(p)){ 
+					pendientes.push(p);
+					marcados.add(p);
+				}
+			}
+		}
+	}	
+	return null;
  }
  // b
  public Planta buscarPlanta(Planta inicial, Insumo i) { }

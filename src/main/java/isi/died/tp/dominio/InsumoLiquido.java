@@ -14,7 +14,7 @@ public class InsumoLiquido extends Insumo {
 		this.densidad = densidad;
 	}
 	
-	public Double getPeso(Double volumen) {
-		return densidad*(volumen/1000);
+	public Double getPeso(Integer volumen) {
+		return densidad*(Double)(volumen/1000.0);
 	}
 }

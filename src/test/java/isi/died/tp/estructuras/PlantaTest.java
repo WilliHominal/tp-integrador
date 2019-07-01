@@ -10,45 +10,45 @@ import org.junit.Test;
 
 import isi.died.tp.dominio.Insumo;
 import isi.died.tp.dominio.InsumoLiquido;
-import isi.died.tp.dominio.Pedido;
 import isi.died.tp.dominio.Planta;
+import isi.died.tp.dominio.Stock;
 import isi.died.tp.dominio.Unidad;
 
 public class PlantaTest {
 	private Insumo I1;
 	private InsumoLiquido I2;
 	private Planta P;
-	private Pedido ped1;
-	private Pedido ped2;
-	private Pedido ped3;
+	private Stock stock1;
+	private Stock stock2;
+	private Stock stock3;
 	
 	@Before
 	public void preTest() {
-		I1 = new Insumo("Celular","Descripcion1",Unidad.Pieza,10500.0,100.0,0.278,false);
-		I2 = new InsumoLiquido("Oxigeno liquido", "Descripcion2", 2500.0, 2500.0, true, 1.141);
-		P = new Planta("Planta 1");
-		ped1 = new Pedido(I1,200.0);
-		ped2 = new Pedido(I2, 1000.0);
-		ped3 = new Pedido(I1, 15.0);
+		I1 = new Insumo(1,"Descripcion1",Unidad.Pieza,100.0,100,0.278,false);
+		I2 = new InsumoLiquido(2, "Descripcion2", 225.0, 75, true, 1.141);
+		P = new Planta(1, "Planta 1");
+		stock1 = new Stock(1,2,10,I1);
+		stock2 = new Stock(2,5,20,I2);
+		stock3 = new Stock(3,3, 15, I1);
 	}
 
 	@Test
-	public void testAgregarPedido() {
+	public void testAddStock() {
 		this.preTest();
-		P.agregarPedido(ped1);
-		P.agregarPedido(ped2);
-		P.agregarPedido(ped3);
-		ArrayList<Pedido> listaEsperada = new ArrayList<Pedido>();
-		listaEsperada.add(ped2);listaEsperada.add(ped3);
-		assertEquals(listaEsperada, P.listaPedido);
+		P.anadirStock(stock1);
+		P.anadirStock(stock2);
+		P.anadirStock(stock3);
+		ArrayList<Stock> listaEsperada = new ArrayList<Stock>();
+		listaEsperada.add(stock1);listaEsperada.add(stock2);listaEsperada.add(stock3);
+		assertEquals(listaEsperada, P.stocks);
 	}
 	
 	@Test
 	public void testPesoLiquido() {
 		this.preTest();
-		Double peso = ped2.getPeso();
-		Double res = I2.densidad*ped2.cantidad/1000;
-		assertEquals(res,peso);
+		Double peso = ((InsumoLiquido)stock2.insumo).getPeso(stock2.cantidad);
+		Double res = I2.densidad*stock2.cantidad/1000;
+		assertEquals(res, peso);
 	}
 
 	@Test
